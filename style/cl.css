@@ -95,6 +95,7 @@ html, body {
   align-items: center;
   gap: 0.65rem;
   margin-top: auto; /* Pushes VIEW MORE to the very bottom baseline, matching video bottom edge */
+  margin-bottom: 50px; /* 50px bottom margin below VIEW MORE */
   font-size: clamp(1.45rem, 2vw, 1.65rem);
   font-weight: 800;
   color: var(--color-title);
@@ -170,16 +171,25 @@ html, body {
   }
 }
 
+.mobile-br {
+  display: none;
+}
+
 /* Responsive Media Queries (Mobile & Tablet) */
 @media (max-width: 1024px) {
+  .mobile-br {
+    display: inline;
+  }
+
   .hero-wrapper {
     padding: 3rem 1.5rem;
+    align-items: flex-start;
   }
 
   .hero-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 0;
   }
 
   /* Unwraps hero-content on mobile so children participate directly in flex ordering */
@@ -189,19 +199,21 @@ html, body {
 
   .main-title {
     order: 1;
-    margin-bottom: 0.5rem;
+    margin-top: 100px; /* 100px top margin on mobile */
+    margin-bottom: 10px; /* 10px gap below main title */
   }
 
   .sub-title {
     order: 2;
-    margin-bottom: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 24px;
   }
 
   /* Video placed directly below the subtitle on mobile view */
   .hero-media {
     order: 3;
     width: 100%;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
 
   .description-group {
@@ -216,16 +228,19 @@ html, body {
 
 @media (max-width: 640px) {
   .hero-wrapper {
-    padding: 2.5rem 1.25rem;
+    padding: 2rem 1.25rem;
   }
 
   .main-title {
     font-size: 2rem;
+    margin-top: 100px; /* 100px top margin on mobile screens */
+    margin-bottom: 10px; /* 10px gap below main title */
   }
 
   .sub-title {
     font-size: 0.95rem;
-    margin-bottom: 1.25rem;
+    margin-top: 0;
+    margin-bottom: 20px;
   }
 
   .desc-text {
