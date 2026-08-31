@@ -1,0 +1,239 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+:root {
+  --font-primary: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+  --color-bg: #ffffff;
+  --color-title: #18191c;
+  --color-subtitle: #808893;
+  --color-body: #24272c;
+  --container-width: 1360px;
+  --radius-video: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-bg);
+  font-family: var(--font-primary);
+  color: var(--color-title);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Section Wrapper */
+.hero-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 3rem;
+  background-color: var(--color-bg);
+}
+
+.hero-container {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: stretch; /* Stretch both columns so bottom edges align */
+  gap: 4rem;
+}
+
+/* Left Column: Text Section */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.main-title {
+  font-size: clamp(2.4rem, 3.8vw, 3.4rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--color-title);
+  margin-bottom: 0.75rem;
+  word-break: keep-all;
+}
+
+.sub-title {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 500;
+  color: var(--color-subtitle);
+  letter-spacing: -0.01em;
+  margin-bottom: 3.5rem;
+  line-height: 1.4;
+}
+
+.description-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 660px;
+}
+
+.desc-text {
+  font-size: clamp(1.25rem, 1.6vw, 1.45rem);
+  font-weight: 700;
+  line-height: 1.7;
+  color: var(--color-body);
+  word-break: keep-all;
+  letter-spacing: -0.02em;
+}
+
+.view-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-top: auto; /* Pushes VIEW MORE to the very bottom baseline, matching video bottom edge */
+  font-size: clamp(1.45rem, 2vw, 1.65rem);
+  font-weight: 800;
+  color: var(--color-title);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  width: fit-content;
+}
+
+.view-more-btn span:first-child {
+  transform: translateY(1px); /* Optical alignment for font cap-height */
+}
+
+.view-more-btn .arrow-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--color-title);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Right Column: Video Container */
+.hero-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  animation: fadeInRight 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.video-frame {
+  width: 100%;
+  max-width: 630px;
+  position: relative;
+  border-radius: var(--radius-video);
+  overflow: hidden;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.robot-video {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Media Queries (Mobile & Tablet) */
+@media (max-width: 1024px) {
+  .hero-wrapper {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Unwraps hero-content on mobile so children participate directly in flex ordering */
+  .hero-content {
+    display: contents;
+  }
+
+  .main-title {
+    order: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .sub-title {
+    order: 2;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Video placed directly below the subtitle on mobile view */
+  .hero-media {
+    order: 3;
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .description-group {
+    order: 4;
+  }
+
+  .view-more-btn {
+    order: 5;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-wrapper {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .sub-title {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .desc-text {
+    font-size: 1.15rem;
+  }
+
+  .view-more-btn {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+  }
+}
