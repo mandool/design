@@ -57,7 +57,7 @@ html, body {
 
 .main-title {
   font-size: clamp(2.4rem, 3.8vw, 3.4rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.03em;
   color: var(--color-title);
