@@ -95,7 +95,7 @@ html, body {
   align-items: center;
   gap: 0.65rem;
   margin-top: auto; /* Pushes VIEW MORE to the very bottom baseline, matching video bottom edge */
-  margin-bottom: 50px; /* 50px bottom margin below VIEW MORE */
+  margin-bottom: 0;
   font-size: clamp(1.45rem, 2vw, 1.65rem);
   font-weight: 800;
   color: var(--color-title);
@@ -223,6 +223,7 @@ html, body {
   .view-more-btn {
     order: 5;
     margin-top: 2rem;
+    margin-bottom: 50px;
   }
 }
 
